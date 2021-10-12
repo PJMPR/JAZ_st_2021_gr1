@@ -6,7 +6,6 @@ import java.lang.reflect.Modifier;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Locale;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -18,17 +17,15 @@ public class ObjectPropertyProvider {
         List<Method> result = new ArrayList<>();
 
         for (Method method: methods) {
-            if (Modifier.isPublic(method.getModifiers()) &&
-                    method.getParameterTypes().length == 0) {
-                if (method.getName().matches("^get[A-Z].*") &&
-                        !method.getReturnType().equals(void.class))
-                    result.add(method);
-                if (method.getName().matches("^is[A-Z].*") &&
-                        method.getReturnType().equals(boolean.class))
-                    result.add(method);
-            }
+            if(method.getModifiers() == Modifier.PUBLIC)
+                if(method.getParameterCount() == 0) {
+                    if (method.getName().matches("^get[A-Z].*") && !method.getReturnType().equals(void.class))
+                        result.add(method);
+                    if (method.getName().matches("^is[A-Z].*") && method.getReturnType().equals(boolean.class))
+                        result.add(method);
+                }
         }
-
+        
         return result;
     }
 
@@ -38,9 +35,11 @@ public class ObjectPropertyProvider {
         List<Method> result = new ArrayList<>();
 
         for (Method method: methods) {
-            if(Modifier.isPublic(method.getModifiers()) && method.getReturnType().equals(void.class) &&
-                    method.getParameterTypes().length == 1 && method.getName().matches("^set[A-Z].*"))
-                result.add(method);
+            if(method.getModifiers() == Modifier.PUBLIC)
+                if(method.getName().matches("^set[A-Z].*"))
+                    if(method.getParameterCount() == 1)
+                        if(method.getReturnType().equals(Void.TYPE))
+                            result.add(method);
         }
 
         return result;
