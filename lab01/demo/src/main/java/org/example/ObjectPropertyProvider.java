@@ -54,17 +54,17 @@ public class ObjectPropertyProvider {
         return classSetters;
     }
 
-    public List<Field> getFieldsForPublicProperties(Class<?> clazz) {
-
-        List<Method> classFielsd = new ArrayList<Method>();
-        Method[] methods = clazz.getDeclaredMethods();
-
-        for (Method method : methods) {
-            if (method.getName().startsWith("set") && method.getName().startsWith("get")) {
-                classFielsd.add(method);
-            }
-        }
-        return classFielsd;
-    }
+//    public List<Field> getFieldsForPublicProperties(Class<?> clazz) {
+//
+//        List<Method> classFielsd = new ArrayList<Method>();
+//        Method[] methods = clazz.getDeclaredMethods();
+//
+//        for (Method method : methods) {
+//            if (method.getName().startsWith("set") && method.getName().startsWith("get")) {
+//                classFielsd.add(method);
+//            }
+//        }
+//        return classFielsd;
+//    }
 
 }
