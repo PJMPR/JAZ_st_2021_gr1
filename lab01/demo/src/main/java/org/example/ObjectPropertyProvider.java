@@ -25,7 +25,7 @@ public class ObjectPropertyProvider {
                         result.add(method);
                 }
         }
-        
+
         return result;
     }
 
@@ -57,7 +57,7 @@ public class ObjectPropertyProvider {
 
         for (Field field: fields) {
             for (Method getOrSet : gettersAndSetters) {
-                String nameGetOrSet = getOrSet.getName().toLowerCase().replaceAll("(?:set|get)", "");
+                String nameGetOrSet = getOrSet.getName().toLowerCase().replaceAll("\\bset|\\bget", "");
                 if (field.getName().toLowerCase().equals(nameGetOrSet)) {
                     if(!result.contains(field))
                         result.add(field);
