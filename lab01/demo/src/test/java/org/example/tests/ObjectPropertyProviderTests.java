@@ -4,13 +4,12 @@ import org.example.ObjectPropertyProvider;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
-
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
+
 public class ObjectPropertyProviderTests {
 
     static ObjectPropertyProvider provider = new ObjectPropertyProvider();
-
 
     @Test
     public void test_It_should_return_public_getters(){
