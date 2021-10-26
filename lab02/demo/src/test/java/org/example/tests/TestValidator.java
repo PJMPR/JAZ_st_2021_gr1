@@ -25,7 +25,6 @@ public class TestValidator {
         assertThat(result.getNotValidFields().keySet(),hasSize(3));
     }
 
-    @Test
     public void test_if_object_with_null_name_is_invalid(){
         SampleObject sample = new SampleObject(null, "a@wp.pl", 5);
         ValidationResult result = validator.validate(sample);
@@ -39,6 +38,7 @@ public class TestValidator {
 
     }
 
+    @Test
     public void test_if_object_with_incorrect_email_is_invalid(){
 
         SampleObject sample = new SampleObject("jan", "a", 5);
@@ -51,6 +51,7 @@ public class TestValidator {
         assertThat(result.getNotValidFields().get("email"), contains("email should be in correct format" ));
     }
 
+    @Test
     public void test_if_object_with_wrong_number_renge_is_invalid(){
 
         SampleObject sample = new SampleObject("jan", "jan@wp.pl", -1);
