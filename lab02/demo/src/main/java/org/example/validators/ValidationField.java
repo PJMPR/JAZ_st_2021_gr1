@@ -24,7 +24,7 @@ public class ValidationField {
         return errList;
     }
 
-    private boolean isFieldNotNull(){
+    private boolean isFieldNull(){
         return fieldValue == null;
     }
 
@@ -41,7 +41,7 @@ public class ValidationField {
         for (Annotation annotation: field.getDeclaredAnnotations()) {
             switch (annotation.annotationType().getSimpleName()){
                 case "NotNull" -> {
-                    if(isFieldNotNull()){
+                    if(isFieldNull()){
                         errList.add(field.getAnnotation(NotNull.class).message());
                     }
                 }
