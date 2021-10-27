@@ -21,6 +21,4 @@ public class Application {
     }
 }
 
-
-
 class Sample{ String name;}
