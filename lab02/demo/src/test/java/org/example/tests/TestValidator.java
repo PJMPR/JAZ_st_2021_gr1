@@ -5,6 +5,7 @@ import org.example.validators.Validator;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -17,7 +18,7 @@ public class TestValidator {
 
     @Test
     @Order(1)
-    public void test_if_object_with_wrong_fields_is_invalid(){
+    public void test_if_object_with_wrong_fields_is_invalid() throws InvocationTargetException, IllegalAccessException {
         SampleObject sample = new SampleObject(null, "test", 11);
         ValidationResult result = validator.validate(sample);
         assertThat(result.isValid(), is(false));
@@ -25,7 +26,7 @@ public class TestValidator {
         assertThat(result.getNotValidFields().keySet(),hasSize(3));
     }
 
-    public void test_if_object_with_null_name_is_invalid(){
+    public void test_if_object_with_null_name_is_invalid() throws InvocationTargetException, IllegalAccessException {
         SampleObject sample = new SampleObject(null, "a@wp.pl", 5);
         ValidationResult result = validator.validate(sample);
         assertThat(result.isValid(), is(false));
@@ -39,7 +40,7 @@ public class TestValidator {
     }
 
     @Test
-    public void test_if_object_with_incorrect_email_is_invalid(){
+    public void test_if_object_with_incorrect_email_is_invalid() throws InvocationTargetException, IllegalAccessException {
 
         SampleObject sample = new SampleObject("jan", "a", 5);
         ValidationResult result = validator.validate(sample);
@@ -52,7 +53,7 @@ public class TestValidator {
     }
 
     @Test
-    public void test_if_object_with_wrong_number_renge_is_invalid(){
+    public void test_if_object_with_wrong_number_renge_is_invalid() throws InvocationTargetException, IllegalAccessException {
 
         SampleObject sample = new SampleObject("jan", "jan@wp.pl", -1);
         ValidationResult result = validator.validate(sample);
