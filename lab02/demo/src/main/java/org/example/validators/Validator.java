@@ -15,39 +15,52 @@ public class Validator {
         Field[] fields =object.getClass().getDeclaredFields();
         for (Field field : fields) {
 
-            if(field.isAnnotationPresent(Regex.class)){
-                field.setAccessible(true);
-                Regex regex=field.getAnnotation(Regex.class);
-               String string= (String) field.get(object);
-               if(!string.matches(regex.pattern())){
-                   //regex.message();
-                   creating_mesage(result,field);
-                   result.getNotValidFields().get(field.getName()).add(regex.message());
-               }
-            }
-            if(field.isAnnotationPresent(NotNull.class)){
-                NotNull notNull= field.getAnnotation(NotNull.class);
-                field.setAccessible(true);
-                Object o=field.get(object);
-                if(o==null || o==""){
-                    creating_mesage(result,field);
-                    result.getNotValidFields().get(field.getName()).add(notNull.message());
-                }
+            Not_Null_check(object, result, field);
 
-            }
-            if (field.isAnnotationPresent(Range.class)){
-                Range range=field.getAnnotation(Range.class);
-                field.setAccessible(true);
-                int intiger = (int) field.get(object);
-                if(range.min()>=intiger || range.max()<=intiger){
-                    creating_mesage(result, field);
-                    result.getNotValidFields().get(field.getName()).add(range.message());
-                }
+            Regex_Check(object, result, field);
 
+            Range_check(object, result, field);
+        }
+        return result;
+    }
+
+
+    private <TClass> void Range_check(TClass object, ValidationResult result, Field field) throws IllegalAccessException {
+        if (field.isAnnotationPresent(Range.class)){
+            Range range= field.getAnnotation(Range.class);
+            field.setAccessible(true);
+            int intiger = (int) field.get(object);
+            if(range.min()>=intiger || range.max()<=intiger){
+                creating_mesage(result, field);
+                result.getNotValidFields().get(field.getName()).add(range.message());
+            }
+        }
+    }
+
+    private <TClass> void Not_Null_check(TClass object, ValidationResult result, Field field) throws IllegalAccessException {
+        if(field.isAnnotationPresent(NotNull.class)){
+            NotNull notNull= field.getAnnotation(NotNull.class);
+            field.setAccessible(true);
+            Object o= field.get(object);
+            if(o==null || o==""){
+                creating_mesage(result, field);
+                result.getNotValidFields().get(field.getName()).add(notNull.message());
             }
 
         }
-        return result;
+    }
+
+    private <TClass> void Regex_Check(TClass object, ValidationResult result, Field field) throws IllegalAccessException {
+        if(field.isAnnotationPresent(Regex.class)){
+            field.setAccessible(true);
+            Regex regex= field.getAnnotation(Regex.class);
+           String string= (String) field.get(object);
+           if(!string.matches(regex.pattern())){
+               //regex.message();
+               creating_mesage(result, field);
+               result.getNotValidFields().get(field.getName()).add(regex.message());
+           }
+        }
     }
 
     private void creating_mesage(ValidationResult result, Field field) {
