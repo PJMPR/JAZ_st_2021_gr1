@@ -32,8 +32,8 @@ public class TestValidator {
         assertThat(result.getValidatedObject(), notNullValue());
         assertThat(result.getNotValidFields().keySet(),hasSize(1));
         assertThat(result.getNotValidFields().keySet(), contains("name"));
-        assertThat(result.getNotValidFields().get("name"), hasSize(2));
-        assertThat(result.getNotValidFields().get("name"), contains("field is null", "field is empty" ));
+        assertThat(result.getNotValidFields().get("name"), hasSize(1));
+        assertThat(result.getNotValidFields().get("name"), contains("field is null"));
 
 
     }
