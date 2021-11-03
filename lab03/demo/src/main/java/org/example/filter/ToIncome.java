@@ -10,7 +10,7 @@ public class ToIncome implements Filter{
     public void meetCriteria(Results results, SearchParameters searchParameters) {
         if (searchParameters.getIncomeTo()>0){
             results.setItems(results.getItems().stream()
-                    .filter(person -> person.getIncome() < searchParameters
+                    .filter(person -> person.getIncome() >= searchParameters
                             .getIncomeTo()).collect(Collectors.toList()));
         }
     }
