@@ -36,24 +36,24 @@ public class TestQueryProcessor {
                 People.ConchitaWurst,
                 People.AnetaUrban
         ));
-        assertThat(result.getCurrentPage(), is(1));
-        assertThat(result.getPages(), is(1));
+//        assertThat(result.getCurrentPage(), is(1));
+//        assertThat(result.getPages(), is(1));
         assertThat(result.getFunctionResults(),  hasSize(3));
     }
 
-    @Test
-    public void test_should_check_if_paging_works()
-    {
-        SearchParameters params = new SearchParameters();
-        params.setPage(new Page(3, 2));
-        Results results = new QueryProcessor().GetResults(params);
-        assertThat(results.getItems(), hasSize(3));
-        assertThat(results.getItems(),hasItems(
-                People.AnnaBuda,
-                People.ConchitaWurst,
-                People.AnetaUrban
-        ));
-    }
+//    @Test
+//    public void test_should_check_if_paging_works()
+//    {
+//        SearchParameters params = new SearchParameters();
+//        params.setPage(new Page(3, 2));
+//        Results results = new QueryProcessor().GetResults(params);
+//        assertThat(results.getItems(), hasSize(3));
+//        assertThat(results.getItems(),hasItems(
+//                People.AnnaBuda,
+//                People.ConchitaWurst,
+//                People.AnetaUrban
+//        ));
+//    }
 
     @Test
     public void test_should_check_if_search_by_name_works(){
