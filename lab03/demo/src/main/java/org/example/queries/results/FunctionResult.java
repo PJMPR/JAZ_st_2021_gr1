@@ -7,6 +7,11 @@ public class FunctionResult {
     private String fieldName;
     private double value;
 
+//    public FunctionResult(Funcs function, String fieldName){
+//        this.function = function;
+//        this.fieldName = fieldName;
+//    }
+
     public Funcs getFunction() {
         return function;
     }

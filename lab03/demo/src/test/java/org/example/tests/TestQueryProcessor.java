@@ -49,9 +49,9 @@ public class TestQueryProcessor {
         Results results = new QueryProcessor().GetResults(params);
         assertThat(results.getItems(), hasSize(3));
         assertThat(results.getItems(),hasItems(
+                People.AnetaUrban,
                 People.AnnaBuda,
-                People.ConchitaWurst,
-                People.AnetaUrban
+                People.ConchitaWurst
         ));
     }
 
