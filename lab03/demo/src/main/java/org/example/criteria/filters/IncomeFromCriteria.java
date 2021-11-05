@@ -15,7 +15,6 @@ public class IncomeFromCriteria implements Criteria {
 
     @Override
     public List<Person> meetCriteria(List<Person> persons) {
-        if(number > 0) return persons.stream().filter(person -> person.getIncome() >= number).collect(Collectors.toList());
-        return persons;
+        return (number <= 0) ? persons : persons.stream().filter(person -> person.getIncome() >= number).collect(Collectors.toList());
     }
 }

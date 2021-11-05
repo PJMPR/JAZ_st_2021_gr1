@@ -13,7 +13,7 @@ public class QueryProcessor {
         filterProcessor.filterData(result);
 
         PageProcessor pageProcessor = new PageProcessor(parameters.getPage());
-        pageProcessor.prepareDataToDisplay(result);
+        pageProcessor.prepareDataForDisplay(result);
 
         FunctionProcessor functionProcessor = new FunctionProcessor(parameters.getFunctions());
         functionProcessor.calculate(result);

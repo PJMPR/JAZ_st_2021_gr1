@@ -6,18 +6,11 @@ import org.example.model.Person;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class OrCriteria implements Criteria {
-
-    private final List<Criteria> criteria;
-
-    public OrCriteria(List<Criteria> criteria) {
-        this.criteria = criteria;
-    }
-
+public record OrCriteria(List<Criteria> criteria) implements Criteria {
     @Override
     public List<Person> meetCriteria(List<Person> persons) {
-        if(!criteria.isEmpty())
-            return criteria.stream().flatMap(c -> c.meetCriteria(persons).stream()).distinct().collect(Collectors.toList());
-        return persons;
+        return  criteria.isEmpty() ? persons : criteria.stream()
+                .flatMap(c -> c.meetCriteria(persons).stream()).distinct()
+                .collect(Collectors.toList());
     }
 }

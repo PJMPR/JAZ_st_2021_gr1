@@ -3,21 +3,17 @@ package org.example.criteria.operations;
 import org.example.criteria.Criteria;
 import org.example.model.Person;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
-public class AndCriteria implements Criteria {
-    private Criteria criteria;
-    private Criteria otherCriteria;
-
-    public AndCriteria(Criteria criteria, Criteria otherCriteria) {
-        this.criteria = criteria;
-        this.otherCriteria = otherCriteria;
-    }
-
+public record AndCriteria(List<Criteria> criteria) implements Criteria {
     @Override
     public List<Person> meetCriteria(List<Person> persons) {
-
-        List<Person> firstCriteriaPersons = criteria.meetCriteria(persons);
-        return otherCriteria.meetCriteria(firstCriteriaPersons);
+        return  criteria.isEmpty() ? persons : criteria.stream()
+                .map(criteria -> criteria.meetCriteria(persons))
+                .reduce(new ArrayList<>(persons),
+                        (p1, p2) -> p1.stream().filter(p2::contains).collect(Collectors.toList())
+                );
     }
 }

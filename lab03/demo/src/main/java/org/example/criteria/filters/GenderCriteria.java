@@ -15,7 +15,8 @@ public class GenderCriteria implements Criteria {
 
     @Override
     public List<Person> meetCriteria(List<Person> persons) {
-        if(gender != null) return persons.stream().filter(person -> person.getGender().equals(gender)).toList();
-        return persons;
+        return (gender == null) ? persons : persons.stream()
+                .filter(person -> person.getGender().equals(gender))
+                .toList();
     }
 }

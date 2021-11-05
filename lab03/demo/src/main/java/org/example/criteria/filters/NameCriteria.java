@@ -13,7 +13,6 @@ public class NameCriteria implements Criteria {
 
     @Override
     public List<Person> meetCriteria(List<Person> persons) {
-        if(string != null) return persons.stream().filter(person -> person.getName().equalsIgnoreCase(string)).collect(Collectors.toList());
-        return persons;
+        return (string == null) ? persons : persons.stream().filter(person -> person.getName().equalsIgnoreCase(string)).collect(Collectors.toList());
     }
 }

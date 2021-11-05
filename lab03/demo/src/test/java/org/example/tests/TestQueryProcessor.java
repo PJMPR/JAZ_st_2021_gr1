@@ -28,7 +28,6 @@ public class TestQueryProcessor {
         params.getFunctions().add(new FunctionsParameters("age", Funcs.AVARAGE));
         params.getFunctions().add(new FunctionsParameters("income", Funcs.SUM));
         params.getFunctions().add(new FunctionsParameters("income", Funcs.AVARAGE));
-
         Results result = new QueryProcessor().GetResults(params);
         assertThat(result.getItems(),hasSize(3));
         assertThat(result.getItems(),hasItems(

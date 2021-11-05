@@ -14,28 +14,29 @@ public class PageProcessor {
         this.page = page;
     }
 
-    public void prepareDataToDisplay(Results result) {
-        if( page == null || page.getSize() > result.getItems().size()) {
-            page = new Page(result.getItems().size(), 1);
-        }
-
-        result.setPages(calculatePagesSize(result));
+    public void prepareDataForDisplay(Results result) {
+        page = validatePage(result.getItems());
+        result.setPages(calculatePagesSize(result.getItems()));
         result.setCurrentPage(page.getPageNumber());
         result.setItems(setSizeToDisplay(result));
     }
 
     private List<Person> setSizeToDisplay(Results results) {
-        if(!results.getItems().isEmpty()){
-            int elementsToSkip = page.getSize() * (page.getPageNumber()-1);
-            return results.getItems().stream()
-                    .skip(elementsToSkip)
-                    .limit(page.getSize())
-                    .collect(Collectors.toList());
-        }
-        return results.getItems();
+        return results.getItems().isEmpty() ? results.getItems() : results.getItems().stream()
+                .skip(calculateElementsToSkip())
+                .limit(page.getSize())
+                .collect(Collectors.toList());
     }
 
-    private int calculatePagesSize(Results result) {
-        return result.getItems().size() / page.getSize();
+    private int calculatePagesSize(List<Person> list) {
+        return (page.getSize() == 0) ? 0 : list.size() / page.getSize();
+    }
+
+    private int calculateElementsToSkip() {
+        return page.getSize() * (page.getPageNumber()-1);
+    }
+
+    private Page validatePage(List<Person> list) {
+        return (page == null || page.getSize() > list.size()) ? page = new Page(list.size(), 1) : page;
     }
 }
