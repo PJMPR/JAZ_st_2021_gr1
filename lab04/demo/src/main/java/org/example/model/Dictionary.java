@@ -8,9 +8,6 @@ public class Dictionary {
     private String value;
     private String dictionaryName;
 
-    public Dictionary() {
-    }
-
     public Dictionary(int id, int intKey, String stringKey, String value, String dictionaryName) {
         this.id = id;
         this.intKey = intKey;
