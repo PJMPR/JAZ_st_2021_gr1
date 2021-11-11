@@ -1,6 +1,5 @@
 package org.example.caching;
 
-<<<<<<< HEAD
 
 import java.util.ArrayList;
 import java.util.List;
@@ -43,29 +42,3 @@ public class Cache {
                 .findAny().get();
     }
 }
-=======
-import org.example.model.Dictionary;
-
-import java.util.List;
-
-public class Cache {
-
-    public static Cache getInstance(){
-        return new Cache();
-    }
-
-
-    public <T> void add(String key, T item){
-
-    }
-
-    public <T> T get(String key, Class<T> clazz){
-
-        return (T) clazz.cast(new Object());
-    }
-
-    public Object get(String key){
-        return null;
-    }
-}
->>>>>>> 62e3a4e14484aa83fc53cd8bd6a8184df1b08217

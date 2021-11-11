@@ -1,6 +1,5 @@
 package org.example.caching.loaders;
 
-<<<<<<< HEAD
 import org.example.caching.Cache;
 import org.example.caching.providers.DictionaryFileProvider;
 import org.example.caching.providers.DictionaryProvider;
@@ -28,9 +27,3 @@ public class DictionaryCacheLoader implements CacheLoader {
         cache.add("dictionaries", items);
     }
 }
-=======
-public class DictionaryCacheLoader {
-
-    public void load(){}
-}
->>>>>>> 62e3a4e14484aa83fc53cd8bd6a8184df1b08217

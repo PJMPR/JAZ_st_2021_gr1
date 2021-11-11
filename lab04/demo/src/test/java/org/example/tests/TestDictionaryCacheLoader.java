@@ -21,8 +21,4 @@ public class TestDictionaryCacheLoader {
         List<String> dictionaryNames = dictionaries.stream().map(x->x.getDictionaryName()).distinct().toList();
         assertThat(dictionaryNames, hasItems("Region","City", "AddressType", "UserType"));
     }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 62e3a4e14484aa83fc53cd8bd6a8184df1b08217

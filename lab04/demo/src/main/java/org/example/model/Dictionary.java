@@ -58,8 +58,4 @@ public class Dictionary {
     public void setDictionaryName(String dictionaryName) {
         this.dictionaryName = dictionaryName;
     }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 62e3a4e14484aa83fc53cd8bd6a8184df1b08217
