@@ -1,6 +1,7 @@
 package errors;
 
 public class DefaultErrorHandler implements Erorr{
+
     @Override
     public String getMessage() {
         return "Not recognized error";

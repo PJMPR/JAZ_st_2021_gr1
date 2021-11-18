@@ -3,6 +3,7 @@ package errors;
 import java.util.concurrent.TimeoutException;
 
 public class TimeoutError implements Erorr {
+
     @Override
     public String getMessage() {
         return "Timeout erorr";

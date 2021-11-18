@@ -7,6 +7,7 @@ import java.io.IOException;
 
 public class Logger {
 
+
     public void log(String msg){
         try {
             File file= new File("log.txt");

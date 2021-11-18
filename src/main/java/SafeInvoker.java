@@ -11,6 +11,7 @@ public class SafeInvoker {
             new FileError(),
             new SQLError(),
             new TimeoutError()
+
     ));
 
     public void invoke(Supplier method){

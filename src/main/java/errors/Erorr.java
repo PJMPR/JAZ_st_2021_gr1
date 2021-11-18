@@ -6,4 +6,5 @@ public interface Erorr {
     String getMessage();
     void handle(Exception err, Supplier method);
     boolean canHandle(Exception err);
+
 }

@@ -3,6 +3,7 @@ package errors;
 import java.io.FileNotFoundException;
 
 public class FileError implements Erorr {
+
     @Override
     public String getMessage() {
         return "Not found File";

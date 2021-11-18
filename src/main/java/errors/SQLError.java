@@ -3,6 +3,7 @@ package errors;
 import java.sql.SQLException;
 
 public class SQLError implements Erorr{
+
     @Override
     public String getMessage() {
         return "Erorr with connection to database";
