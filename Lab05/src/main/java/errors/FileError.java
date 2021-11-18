@@ -1,5 +1,6 @@
 package errors;
 
+
 import java.io.FileNotFoundException;
 
 public class FileError implements ErrorInterface {

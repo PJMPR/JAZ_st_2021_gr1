@@ -10,6 +10,7 @@ public class Actions {
 
     }
 
+
     public boolean redo(Supplier method, int times) {
         if (times > 0) {
             System.out.println("Attempts left: "+times);

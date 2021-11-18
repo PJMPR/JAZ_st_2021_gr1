@@ -2,6 +2,7 @@ package errors;
 
 import java.sql.SQLException;
 
+
 public class SQLErrorInterface implements ErrorInterface {
     @Override
     public String getMessage() {

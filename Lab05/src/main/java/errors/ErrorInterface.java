@@ -1,5 +1,6 @@
 package errors;
 
+
 public interface ErrorInterface {
     Actions actions = new Actions();
     Logger logger = new Logger();

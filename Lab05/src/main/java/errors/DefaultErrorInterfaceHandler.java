@@ -1,5 +1,6 @@
 package errors;
 
+
 public class DefaultErrorInterfaceHandler implements ErrorInterface {
     @Override
     public String getMessage() {

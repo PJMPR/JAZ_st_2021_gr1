@@ -1,5 +1,6 @@
 package errors;
 
+
 import java.util.concurrent.TimeoutException;
 
 public class TimeoutErrorInterface implements ErrorInterface {
