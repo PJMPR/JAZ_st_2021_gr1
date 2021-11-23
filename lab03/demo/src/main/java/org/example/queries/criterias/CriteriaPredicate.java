@@ -1,4 +1,4 @@
-package org.example.queries;
+package org.example.queries.criterias;
 
 import org.example.model.Person;
 import org.example.queries.search.SearchParameters;
