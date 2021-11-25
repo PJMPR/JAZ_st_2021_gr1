@@ -2,7 +2,6 @@ package org.example.queries.search;
 
 public class FunctionsParameters {
 
-
     private String fieldName;
     private Funcs function;
 
