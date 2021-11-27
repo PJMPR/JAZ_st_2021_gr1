@@ -1,5 +1,7 @@
 package org.example;
 
+import org.example.caching.loaders.DictionaryCacheLoader;
+
 public class App {
 
     public static void main(String[] args){

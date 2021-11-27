@@ -1,26 +1,41 @@
 package org.example.caching;
 
-import org.example.model.Dictionary;
-
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Cache {
+    private static final Cache instance = new Cache();
+    private List<CacheItem> items = new ArrayList<>();
 
-    public static Cache getInstance(){
-        return new Cache();
+    public static Cache getInstance() {
+        return instance;
     }
 
 
-    public <T> void add(String key, T item){
-
+    public <T> void add(String key, Object item){
+        items.add(new CacheItem(key,item));
     }
 
     public <T> T get(String key, Class<T> clazz){
-
-        return (T) clazz.cast(new Object());
+        Object result = new ArrayList<>();
+        for (CacheItem item :
+                items) {
+            if (item.getKey()==key || clazz.equals(item.getItem().getClass())){
+                result = (T) item.getItem();
+            }
+        }
+        return (T) result;
     }
 
     public Object get(String key){
-        return null;
+        Object result = new ArrayList<>();
+        for (CacheItem item :
+                items) {
+            if (item.getKey()==key){
+                result = item.getItem();
+            }
+        }
+        return result;
     }
 }
