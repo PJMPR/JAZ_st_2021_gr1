@@ -99,4 +99,16 @@ public class Timetable{
     public void setAmount(double amount) {
         this.amount = amount;
     }
+
+    @Override
+    public String toString() {
+        return "Timetable{" +
+                "number=" + number +
+                ", capital=" + capital +
+                ", interest=" + interest +
+                ", fixedFee=" + fixedFee +
+                ", capitalToPay=" + capitalToPay +
+                ", amount=" + amount +
+                '}';
+    }
 }
