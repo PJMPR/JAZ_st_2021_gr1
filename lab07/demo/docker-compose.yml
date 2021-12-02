@@ -1,0 +1,27 @@
+version: '3.9'
+services:
+  db:
+    image: mysql:8
+    restart: always
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_DATABASE: sakila
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_USER: pjwstk
+      MYSQL_PASSWORD: password
+    volumes:
+      - ./imports:/docker-entrypoint-initdb.d
+    #    cap_add:
+    #      - SYS_NICE
+    #    security_opt:
+    #      - seccomp:unconfined
+  DBMS:
+    image: phpmyadmin
+    restart: always
+    ports:
+      - "8081:80"
+    environment:
+      - PMA_ARBITRARY=1
+    depends_on:
+      - db
