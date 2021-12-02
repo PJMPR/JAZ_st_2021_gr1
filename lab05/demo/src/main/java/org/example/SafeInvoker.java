@@ -1,39 +1,23 @@
 package org.example;
 
-import org.example.repeaters.IRepeater;
+import org.example.Handlers.Handler;
+import org.example.Handlers.TimeOutHandler;
+import org.example.Supplier.Supplier;
 
-public class SafeInvoker implements ISafeInvoker{
+import java.util.ArrayList;
+import java.util.List;
 
-    IRepeater repeater;
+public class SafeInvoker {
+    List<Handler> handlers = List.of(
+            new TimeOutHandler()
+    );
 
-    public SafeInvoker(IRepeater repeater) {
-        this.repeater = repeater;
-    }
-
-    @Override
-    public InvokerResult SafeInvoke(NotSafeAction action) {
-
-        var isSuccess = false;
-        Exception exception = null;
+    public void invoke(Supplier supplier) {
         try {
-            action.execute();
-            isSuccess=true;
-        }catch(Exception ex){
-
-            repeater.For(ex);
-            exception=ex;
-            while (repeater.shouldRetry()){
-                try {
-                    action.execute();
-                    isSuccess=true;
-                    exception=null;
-                }catch(Exception ex2){
-                    exception=ex2;
-                    repeater.For(ex2).waiting().retry();
-                }
-            }
+            supplier.execute();
+        } catch (Exception e) {
+            handlers.forEach(handler -> handler.handle(e, supplier));
 
         }
-        return new InvokerResult(exception, isSuccess);
     }
 }
