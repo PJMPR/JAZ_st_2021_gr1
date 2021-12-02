@@ -4,6 +4,7 @@ import org.example.model.Dictionary;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class Cache {
 
@@ -35,6 +36,9 @@ public class Cache {
     }
 
     public Object get(String key) {
-        return null;
+        return list.stream()
+                .filter(cachedItem -> Objects.equals(cachedItem.getKey(), key))
+                .map(cachedItem -> cachedItem.getValue())
+                .findAny().get();
     }
 }
