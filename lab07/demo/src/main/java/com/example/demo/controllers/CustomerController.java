@@ -21,7 +21,7 @@ public class CustomerController {
     }
 
     CustomerRepository repository;
-
+//    JPAstreamer:
     @GetMapping
     @RequestMapping("{id}")
     public ResponseEntity get(@PathVariable("id") int id){

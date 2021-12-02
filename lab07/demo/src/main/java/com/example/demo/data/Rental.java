@@ -88,7 +88,7 @@ public class Rental {
         this.paymentsByRentalId = paymentsByRentalId;
     }
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "inventory_id", referencedColumnName = "inventory_id", nullable = false)
     public Inventory getInventoryByInventoryId() {
         return inventoryByInventoryId;
@@ -98,7 +98,7 @@ public class Rental {
         this.inventoryByInventoryId = inventoryByInventoryId;
     }
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "customer_id", referencedColumnName = "customer_id", nullable = false)
     public Customer getCustomerByCustomerId() {
         return customerByCustomerId;
@@ -108,7 +108,7 @@ public class Rental {
         this.customerByCustomerId = customerByCustomerId;
     }
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "staff_id", referencedColumnName = "staff_id", nullable = false)
     public Staff getStaffByStaffId() {
         return staffByStaffId;

@@ -118,7 +118,7 @@ public class Customer {
         return result;
     }
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "store_id", referencedColumnName = "store_id", nullable = false)
     public Store getStore() {
         return store;
@@ -128,7 +128,7 @@ public class Customer {
         this.store = store;
     }
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "address_id", referencedColumnName = "address_id", nullable = false)
     public Address getAddress() {
         return address;

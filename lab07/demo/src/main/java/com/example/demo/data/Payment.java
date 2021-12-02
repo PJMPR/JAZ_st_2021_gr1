@@ -78,7 +78,7 @@ public class Payment {
         return result;
     }
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "customer_id", referencedColumnName = "customer_id", nullable = false)
     public Customer getCustomerByCustomerId() {
         return customerByCustomerId;
@@ -88,7 +88,7 @@ public class Payment {
         this.customerByCustomerId = customerByCustomerId;
     }
 
-    @ManyToOne()
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "staff_id", referencedColumnName = "staff_id", nullable = false)
     public Staff getStaffByStaffId() {
         return staffByStaffId;
@@ -98,7 +98,7 @@ public class Payment {
         this.staffByStaffId = staffByStaffId;
     }
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "rental_id", referencedColumnName = "rental_id")
     public Rental getRentalByRentalId() {
         return rentalByRentalId;

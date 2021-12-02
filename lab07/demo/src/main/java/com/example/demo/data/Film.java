@@ -173,7 +173,7 @@ public class Film {
         return result;
     }
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "language_id", referencedColumnName = "language_id", nullable = false)
     public Language getLanguageByLanguageId() {
         return languageByLanguageId;
@@ -183,7 +183,7 @@ public class Film {
         this.languageByLanguageId = languageByLanguageId;
     }
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "original_language_id", referencedColumnName = "language_id")
     public Language getLanguageByOriginalLanguageId() {
         return languageByOriginalLanguageId;

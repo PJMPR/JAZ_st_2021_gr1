@@ -73,7 +73,7 @@ public class City {
         this.addresses = addresses;
     }
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "country_id", referencedColumnName = "country_id", nullable = false)
     public Country getCountry() {
         return country;

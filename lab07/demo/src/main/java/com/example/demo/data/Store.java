@@ -81,7 +81,7 @@ public class Store {
         this.staffByStoreId = staffByStoreId;
     }
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "manager_staff_id", referencedColumnName = "staff_id", nullable = false)
     public Staff getStaffByManagerStaffId() {
         return staffByManagerStaffId;
@@ -91,7 +91,7 @@ public class Store {
         this.staffByManagerStaffId = staffByManagerStaffId;
     }
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "address_id", referencedColumnName = "address_id", nullable = false)
     public Address getAddressByAddressId() {
         return addressByAddressId;

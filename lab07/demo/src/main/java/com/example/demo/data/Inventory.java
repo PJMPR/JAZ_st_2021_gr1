@@ -52,7 +52,7 @@ public class Inventory {
         return result;
     }
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "film_id", referencedColumnName = "film_id", nullable = false)
     public Film getFilmByFilmId() {
         return filmByFilmId;
@@ -62,7 +62,7 @@ public class Inventory {
         this.filmByFilmId = filmByFilmId;
     }
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "store_id", referencedColumnName = "store_id", nullable = false)
     public Store getStoreByStoreId() {
         return storeByStoreId;

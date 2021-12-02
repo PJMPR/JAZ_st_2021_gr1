@@ -164,7 +164,7 @@ public class Staff {
         this.rentalsByStaffId = rentalsByStaffId;
     }
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "address_id", referencedColumnName = "address_id", nullable = false)
     public Address getAddressByAddressId() {
         return addressByAddressId;
@@ -174,7 +174,7 @@ public class Staff {
         this.addressByAddressId = addressByAddressId;
     }
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "store_id", referencedColumnName = "store_id", nullable = false)
     public Store getStoreByStoreId() {
         return storeByStoreId;

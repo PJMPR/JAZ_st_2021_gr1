@@ -65,7 +65,7 @@ public class FilmActor {
         return result;
     }
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     //@JoinColumn(name = "actor_id", referencedColumnName = "actor_id", nullable = false)
     public Actor getActorByActorId() {
         return actorByActorId;
@@ -75,7 +75,7 @@ public class FilmActor {
         this.actorByActorId = actorByActorId;
     }
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     //@JoinColumn(name = "film_id", referencedColumnName = "film_id", nullable = false)
     public Film getFilmByFilmId() {
         return filmByFilmId;
