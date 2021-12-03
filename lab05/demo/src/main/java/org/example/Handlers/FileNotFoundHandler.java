@@ -1,24 +1,19 @@
 package org.example.Handlers;
 
-import org.example.Actions.Actions;
 import org.example.Supplier.Supplier;
 
+import java.io.FileNotFoundException;
 import java.util.concurrent.TimeoutException;
 
-public class TimeOutHandler implements Handler {
+public class FileNotFoundHandler implements Handler{
     @Override
     public String getMessage() {
-        return "Time Out";
+        return "404 File not found";
     }
-
     @Override
     public boolean handle(Exception e, Supplier method) {
-        if (canHandle(e)) {
-            action.wait(3);
-
-            if (action.redo(method, 4)) {
-                return true;
-            }
+        if(canHandle(e))
+        {
             System.out.println(getMessage());
             logger.log(getMessage());
             return true;
@@ -28,6 +23,6 @@ public class TimeOutHandler implements Handler {
 
     @Override
     public boolean canHandle(Exception e) {
-        return e instanceof TimeoutException;
+        return e instanceof FileNotFoundException;
     }
 }

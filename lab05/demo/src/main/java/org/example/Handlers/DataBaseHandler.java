@@ -1,22 +1,22 @@
 package org.example.Handlers;
 
-import org.example.Actions.Actions;
 import org.example.Supplier.Supplier;
 
+import java.sql.SQLException;
 import java.util.concurrent.TimeoutException;
 
-public class TimeOutHandler implements Handler {
+public class DataBaseHandler implements Handler{
     @Override
     public String getMessage() {
-        return "Time Out";
+        return "Connection with data base time out";
     }
-
     @Override
     public boolean handle(Exception e, Supplier method) {
-        if (canHandle(e)) {
+        if(canHandle(e))
+        {
             action.wait(3);
-
-            if (action.redo(method, 4)) {
+            if (action.redo(method, 4))
+            {
                 return true;
             }
             System.out.println(getMessage());
@@ -28,6 +28,6 @@ public class TimeOutHandler implements Handler {
 
     @Override
     public boolean canHandle(Exception e) {
-        return e instanceof TimeoutException;
+        return e instanceof SQLException;
     }
 }

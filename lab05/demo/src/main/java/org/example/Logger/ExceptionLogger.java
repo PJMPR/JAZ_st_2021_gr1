@@ -9,4 +9,7 @@ public class ExceptionLogger {
         logger.error(msg);
     }
 
+    public void log(String msg, Exception e){
+        logger.error(msg, e);
+    }
 }

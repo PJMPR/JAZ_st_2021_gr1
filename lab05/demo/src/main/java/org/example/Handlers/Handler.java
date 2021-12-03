@@ -8,6 +8,7 @@ public interface Handler {
     ExceptionLogger logger = new ExceptionLogger();
     Actions action = new Actions();
     String getMessage();
-    void handle(Exception e, Supplier method);
+    boolean handle(Exception e, Supplier method);
     boolean canHandle(Exception e);
+
 }
