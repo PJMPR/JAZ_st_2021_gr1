@@ -1,4 +1,6 @@
-package com.example.demo.data;
+package com.example.demo.data.entities;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
@@ -118,6 +120,7 @@ public class Customer {
         return result;
     }
 
+    @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "store_id", referencedColumnName = "store_id", nullable = false)
     public Store getStore() {
@@ -128,6 +131,7 @@ public class Customer {
         this.store = store;
     }
 
+    @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "address_id", referencedColumnName = "address_id", nullable = false)
     public Address getAddress() {
@@ -138,6 +142,7 @@ public class Customer {
         this.address = address;
     }
 
+    @JsonIgnore
     @OneToMany(mappedBy = "customerByCustomerId"  )
     public Collection<Payment> getPayments() {
         return payments;
@@ -147,6 +152,7 @@ public class Customer {
         this.payments = payments;
     }
 
+    @JsonIgnore
     @OneToMany(mappedBy = "customerByCustomerId")
     public Collection<Rental> getRentalsByCustomer() {
         return rentalsByCustomer;

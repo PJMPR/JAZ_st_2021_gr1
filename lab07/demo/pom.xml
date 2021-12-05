@@ -21,6 +21,7 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
+			<version>2.6.1</version>
 		</dependency>
 		<dependency>
 			<groupId>org.hibernate</groupId>
@@ -30,6 +31,7 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
+			<version>2.6.1</version>
 		</dependency>
 		<dependency>
 			<groupId>mysql</groupId>
@@ -39,13 +41,35 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-tomcat</artifactId>
-<!--			<scope>provided</scope>-->
+			<version>2.6.1</version>
+			<!--			<scope>provided</scope>-->
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-expression</artifactId>
+            <version>5.3.13</version>
+        </dependency>
+		<dependency>
+			<groupId>com.speedment.jpastreamer</groupId>
+			<artifactId>projection</artifactId>
+			<version>1.0.2</version>
+			<scope>compile</scope>
+		</dependency>
+<!--		<dependency>-->
+<!--			<groupId>com.speedment.jpastreamer</groupId>-->
+<!--			<artifactId>jpastreamer-core</artifactId>-->
+<!--			<version>1.0.2</version>-->
+<!--		</dependency>-->
+<!--		<dependency>-->
+<!--			<groupId>com.speedment.jpastreamer.integration.spring</groupId>-->
+<!--			<artifactId>spring-boot-jpastreamer-autoconfigure</artifactId>-->
+<!--			<version>1.0.2</version>-->
+<!--		</dependency>-->
 	</dependencies>
 
 	<build>

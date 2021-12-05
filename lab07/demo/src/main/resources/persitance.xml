@@ -4,22 +4,22 @@
              xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
     <persistence-unit name="TestPersistence" transaction-type="RESOURCE_LOCAL">
         <class>javax.persistence.EntityManager</class>
-        <class>com.example.demo.data.Actor</class>
-        <class>com.example.demo.data.Address</class>
+        <class>com.example.demo.data.entities.Actor</class>
+        <class>com.example.demo.data.entities.Address</class>
         <class>com.example.demo.data.Category</class>
-        <class>com.example.demo.data.City</class>
-        <class>com.example.demo.data.Country</class>
-        <class>com.example.demo.data.Customer</class>
-        <class>com.example.demo.data.Film</class>
-        <class>com.example.demo.data.FilmActor</class>
+        <class>com.example.demo.data.entities.City</class>
+        <class>com.example.demo.data.entities.Country</class>
+        <class>com.example.demo.data.entities.Customer</class>
+        <class>com.example.demo.data.entities.Film</class>
+        <class>com.example.demo.data.entities.FilmActor</class>
         <class>com.example.demo.data.FilmCategory</class>
-        <class>com.example.demo.data.FilmText</class>
-        <class>com.example.demo.data.Inventory</class>
-        <class>com.example.demo.data.Language</class>
-        <class>com.example.demo.data.Payment</class>
-        <class>com.example.demo.data.Rental</class>
-        <class>com.example.demo.data.Staff</class>
-        <class>com.example.demo.data.Store</class>
+        <class>com.example.demo.data.entities.FilmText</class>
+        <class>com.example.demo.data.entities.Inventory</class>
+        <class>com.example.demo.data.entities.Language</class>
+        <class>com.example.demo.data.entities.Payment</class>
+        <class>com.example.demo.data.entities.Rental</class>
+        <class>com.example.demo.data.entities.Staff</class>
+        <class>com.example.demo.data.entities.Store</class>
         <properties>
             <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver" />
             <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/sakila" />

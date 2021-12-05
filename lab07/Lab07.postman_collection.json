@@ -1,0 +1,368 @@
+{
+	"info": {
+		"_postman_id": "f92bb200-1057-470a-a54c-b141dc449eaf",
+		"name": "Lab07",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Customers",
+			"item": [
+				{
+					"name": "TOP10_bySpentMoney",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Customers/ranking/bySpentMoney",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Customers",
+								"ranking",
+								"bySpentMoney"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "TOP10_bySpentMoneyChart",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Customers/ranking/bySpentMoney.jpg?chart=pie",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Customers",
+								"ranking",
+								"bySpentMoney.jpg"
+							],
+							"query": [
+								{
+									"key": "chart",
+									"value": "pie"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "TOP10_byWatchedMovies",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Customers/ranking/byWatchedMovies",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Customers",
+								"ranking",
+								"byWatchedMovies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "TOP10_byWatchedMoviesChart",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Customers/ranking/byWatchedMovies.jpg?chart=bar",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Customers",
+								"ranking",
+								"byWatchedMovies.jpg"
+							],
+							"query": [
+								{
+									"key": "chart",
+									"value": "bar"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "RentMoviesByMonth",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Customers/activity/rentMoviesByMonth?year=2005",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Customers",
+								"activity",
+								"rentMoviesByMonth"
+							],
+							"query": [
+								{
+									"key": "year",
+									"value": "2005"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "RentMoviesByMonthChart",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Customers/activity/rentMoviesByMonth.jpg?chart=bar&year=2005",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Customers",
+								"activity",
+								"rentMoviesByMonth.jpg"
+							],
+							"query": [
+								{
+									"key": "chart",
+									"value": "bar"
+								},
+								{
+									"key": "year",
+									"value": "2005"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "RentMoviesByMonthByCustomerId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Customers/activity/rentMoviesByMonth?customerid=2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Customers",
+								"activity",
+								"rentMoviesByMonth"
+							],
+							"query": [
+								{
+									"key": "customerid",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "RentMoviesByMonthByCustomerIdChart",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Customers/activity/rentMoviesByMonth.jpg?chart=bar&customerid=2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Customers",
+								"activity",
+								"rentMoviesByMonth.jpg"
+							],
+							"query": [
+								{
+									"key": "chart",
+									"value": "bar"
+								},
+								{
+									"key": "customerid",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Rental",
+			"item": [
+				{
+					"name": "incomebyMonth",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Rental/incomebyMonth?year=2005",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Rental",
+								"incomebyMonth"
+							],
+							"query": [
+								{
+									"key": "year",
+									"value": "2005"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "incomebyMonthChart",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Rental/incomebyMonth.jpg?chart=linear&year=2005",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Rental",
+								"incomebyMonth.jpg"
+							],
+							"query": [
+								{
+									"key": "chart",
+									"value": "linear"
+								},
+								{
+									"key": "year",
+									"value": "2005"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "incomeFromTo",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Rental/income?from=2005-01-01&to=2006-04-01",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Rental",
+								"income"
+							],
+							"query": [
+								{
+									"key": "from",
+									"value": "2005-01-01"
+								},
+								{
+									"key": "to",
+									"value": "2006-04-01"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "incomeFromToChart",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "Rental/income?from=2005-01-01&to=2006-04-01&chart=linear",
+							"host": [
+								"Rental"
+							],
+							"path": [
+								"income"
+							],
+							"query": [
+								{
+									"key": "from",
+									"value": "2005-01-01"
+								},
+								{
+									"key": "to",
+									"value": "2006-04-01"
+								},
+								{
+									"key": "chart",
+									"value": "linear"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Test",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/customers/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"customers",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

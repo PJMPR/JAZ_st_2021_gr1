@@ -1,4 +1,4 @@
-package com.example.demo.data;
+package com.example.demo.data.entities;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
