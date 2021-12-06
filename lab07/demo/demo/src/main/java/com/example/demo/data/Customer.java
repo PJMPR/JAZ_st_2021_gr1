@@ -1,15 +1,10 @@
 package com.example.demo.data;
 
 import javax.persistence.*;
-<<<<<<< HEAD
 import java.math.BigDecimal;
 import java.sql.Timestamp;
 import java.util.Collection;
 import java.util.List;
-=======
-import java.sql.Timestamp;
-import java.util.Collection;
->>>>>>> 62e3a4e14484aa83fc53cd8bd6a8184df1b08217
 
 @Entity
 public class Customer {
@@ -22,13 +17,8 @@ public class Customer {
     private Timestamp lastUpdate;
     private Store store;
     private Address address;
-<<<<<<< HEAD
     private List<Payment> payments;
     private List<Rental> rentalsByCustomer;
-=======
-    private Collection<Payment> payments;
-    private Collection<Rental> rentalsByCustomer;
->>>>>>> 62e3a4e14484aa83fc53cd8bd6a8184df1b08217
 
     @Id
     @Column(name = "customer_id")
@@ -150,26 +140,16 @@ public class Customer {
         this.address = address;
     }
 
-<<<<<<< HEAD
     @OneToMany(mappedBy = "customerByCustomerId")
     public List<Payment> getPayments() {
         return payments;
     }
 
     public void setPayments(List<Payment> payments) {
-=======
-    @OneToMany(mappedBy = "customerByCustomerId"  )
-    public Collection<Payment> getPayments() {
-        return payments;
-    }
-
-    public void setPayments(Collection<Payment> payments) {
->>>>>>> 62e3a4e14484aa83fc53cd8bd6a8184df1b08217
         this.payments = payments;
     }
 
     @OneToMany(mappedBy = "customerByCustomerId")
-<<<<<<< HEAD
     public List<Rental> getRentalsByCustomer() {
         return rentalsByCustomer;
     }
@@ -193,13 +173,3 @@ public class Customer {
     }
 
 }
-=======
-    public Collection<Rental> getRentalsByCustomer() {
-        return rentalsByCustomer;
-    }
-
-    public void setRentalsByCustomer(Collection<Rental> rentalsByCustomer) {
-        this.rentalsByCustomer = rentalsByCustomer;
-    }
-}
->>>>>>> 62e3a4e14484aa83fc53cd8bd6a8184df1b08217

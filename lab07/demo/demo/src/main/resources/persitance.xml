@@ -25,13 +25,8 @@
         <properties>
             <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
             <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/sakila" />
-<<<<<<< HEAD
             <property name="javax.persistence.jdbc.user" value="Jaz" />
             <property name="javax.persistence.jdbc.password" value="Knypek123" />
-=======
-            <property name="javax.persistence.jdbc.user" value="pjwstk" />
-            <property name="javax.persistence.jdbc.password" value="password" />
->>>>>>> 62e3a4e14484aa83fc53cd8bd6a8184df1b08217
             <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/sakila"/>
             <property name="hibernate.connection.driver_class" value="com.mysql.cj.jdbc.Driver"/>
         </properties>

@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-<<<<<<< HEAD
 		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
-=======
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
->>>>>>> 62e3a4e14484aa83fc53cd8bd6a8184df1b08217
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -27,7 +23,6 @@
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 
-<<<<<<< HEAD
 		<!-- https://mvnrepository.com/artifact/jfree/jfreechart -->
 		<dependency>
 			<groupId>jfree</groupId>
@@ -36,8 +31,6 @@
 		</dependency>
 
 
-=======
->>>>>>> 62e3a4e14484aa83fc53cd8bd6a8184df1b08217
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-core</artifactId>
@@ -73,8 +66,4 @@
 		</plugins>
 	</build>
 
-<<<<<<< HEAD
 </project>
-=======
-</project>
->>>>>>> 62e3a4e14484aa83fc53cd8bd6a8184df1b08217
