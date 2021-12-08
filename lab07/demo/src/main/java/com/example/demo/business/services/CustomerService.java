@@ -1,6 +1,6 @@
 package com.example.demo.business.services;
 
-import com.example.demo.business.parsers.StringToTimestamp;
+import com.example.demo.business.converters.StringToTimestampConverter;
 import com.example.demo.data.entities.Payment;
 import com.example.demo.data.projections.Customer.CustomerBySpentMoney;
 import com.example.demo.data.projections.Customer.CustomerByWatchedMovies;
@@ -41,7 +41,7 @@ public class CustomerService {
     }
 
     public List<RentMoviesByMonth> getRentMoviesByMonth(String year) {
-        return repository.getRentMoviesByMonth(StringToTimestamp.parse(year));
+        return repository.getRentMoviesByMonth(new StringToTimestampConverter().convert(year));
     }
 
     public List<RentMoviesByMonth> getCustomerRentMoviesByMonth(Integer customerId) {

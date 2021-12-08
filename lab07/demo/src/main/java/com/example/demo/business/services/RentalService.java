@@ -1,6 +1,6 @@
 package com.example.demo.business.services;
 
-import com.example.demo.business.parsers.StringToTimestamp;
+import com.example.demo.business.converters.StringToTimestampConverter;
 import com.example.demo.data.repositories.RentalRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,7 +20,7 @@ public class RentalService {
     }
 
     public List<?> getIncomeByMonth(String year) {
-        return repository.getIncomeByMonth(StringToTimestamp.parse(year));
+        return repository.getIncomeByMonth(new StringToTimestampConverter().convert(year));
     }
 
     public List<?> getIncomeFromTo(Date from, Date to) {
