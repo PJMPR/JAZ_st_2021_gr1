@@ -136,7 +136,7 @@ public class Film {
         this.filmActors = filmActors;
     }
 
-    @OneToMany(mappedBy = "filmByFilmId")
+    @OneToMany(mappedBy = "film")
     public Collection<FilmCategory> getFilmCategories() {
         return filmCategories;
     }

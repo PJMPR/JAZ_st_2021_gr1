@@ -63,7 +63,7 @@ public class Category {
         return result;
     }
 
-    @OneToMany(mappedBy = "categoryByCategoryId")
+    @OneToMany(mappedBy = "category")
     public Collection<FilmCategory> getFilmCategories() {
         return filmCategories;
     }
