@@ -1,0 +1,156 @@
+{
+	"info": {
+		"_postman_id": "dade63dd-ac0f-4d5d-be60-8c1f7c37ac55",
+		"name": "Lab08",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Updater",
+			"item": [
+				{
+					"name": "/updater/reload",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/updater/reload",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"updater",
+								"reload"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/updater/reload?year=yyyy",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/updater/reload?year=2019",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"updater",
+								"reload"
+							],
+							"query": [
+								{
+									"key": "year",
+									"value": "2019"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/updater/status",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/updater/status",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"updater",
+								"status"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "MoviesClient",
+			"item": [
+				{
+					"name": "TheMoveDb/movies",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/movies-client/TheMoveDb/movies/1980",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"movies-client",
+								"TheMoveDb",
+								"movies",
+								"1980"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "2",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "TheMoveDb/{id}",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/movies-client/TheMoveDb/617653",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"movies-client",
+								"TheMoveDb",
+								"617653"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "OMDb/{imdb_id}",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/movies-client/OMDb/tt4244994",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"movies-client",
+								"OMDb",
+								"tt4244994"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
