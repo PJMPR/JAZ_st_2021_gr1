@@ -1,35 +1,43 @@
 package com.example.demo.contract;
 
+import com.example.demo.model.Actor;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
+import javax.persistence.Entity;
+import java.util.List;
+
+
+@Getter
+@Setter
+@NoArgsConstructor
 public class MovieDto {
 
-    int id;
-    @JsonProperty(value = "original_title", access = JsonProperty.Access.WRITE_ONLY)
-    String title;
-    String overview;
+    private String title;
+    private int id;
+    @JsonProperty("runtime")
+    private int runtime;
+    @JsonProperty("overview")
+    private String overview;
+    private int year;
+    private String rating;
 
-    public int getId() {
-        return id;
-    }
+    private List<Actor> actors;
 
-    public void setId(int id) {
-        this.id = id;
-    }
+    private String imdb_id;
 
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
+    public MovieDto(String title, int id, int runtime, String overview, int year, String rating, List<Actor> actors, String imdb_id) {
         this.title = title;
-    }
-
-    public String getOverview() {
-        return overview;
-    }
-
-    public void setOverview(String overview) {
+        this.id = id;
+        this.runtime = runtime;
         this.overview = overview;
+        this.year = year;
+        this.rating = rating;
+        this.actors = actors;
+        this.imdb_id = imdb_id;
     }
+
+
 }
