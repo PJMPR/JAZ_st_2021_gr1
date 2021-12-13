@@ -6,11 +6,21 @@ import java.util.Collection;
 
 @Entity
 public class Actor {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int actorId;
     private String firstName;
     private String lastName;
     private Timestamp lastUpdate;
     private Collection<FilmActor> filmActors;
+
+    public Actor(String firstName,String lastName){
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+
+    public Actor(){
+    }
 
     @Id
     @Column(name = "actor_id")
