@@ -29,6 +29,7 @@ public class MoviesController {
                 id +
                 "?api_key=" + apiKey, MovieDto.class)
                 .getBody();
+
         return ResponseEntity.ok(movie);
 
     }
