@@ -1,15 +1,16 @@
 package com.example.demo.model;
 
-import javax.persistence.*;
+import javax.persistence.Basic;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.sql.Timestamp;
-import java.util.Collection;
 
 @Entity
 public class Language {
     private int languageId;
     private String name;
     private Timestamp lastUpdate;
-    private Collection<Film> films;
 
     @Id
     @Column(name = "language_id")
@@ -61,14 +62,5 @@ public class Language {
         result = 31 * result + (name != null ? name.hashCode() : 0);
         result = 31 * result + (lastUpdate != null ? lastUpdate.hashCode() : 0);
         return result;
-    }
-
-    @OneToMany(mappedBy = "language")
-    public Collection<Film> getFilms() {
-        return films;
-    }
-
-    public void setFilms(Collection<Film> films) {
-        this.films = films;
     }
 }

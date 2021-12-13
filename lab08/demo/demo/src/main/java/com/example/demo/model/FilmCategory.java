@@ -10,8 +10,8 @@ public class FilmCategory {
     private int filmId;
     private int categoryId;
     private Timestamp lastUpdate;
-    private Film filmByFilmId;
-    private Category categoryByCategoryId;
+    private Film film;
+    private Category category;
 
     @Id
     @Column(name = "film_id")
@@ -66,22 +66,22 @@ public class FilmCategory {
     }
 
     @ManyToOne
-    @JoinColumn(name = "film_id", referencedColumnName = "film_id", nullable = false, updatable = false, insertable = false)
-    public Film getFilmByFilmId() {
-        return filmByFilmId;
+    @JoinColumn(name = "film_id", referencedColumnName = "film_id", nullable = false)
+    public Film getFilm() {
+        return film;
     }
 
-    public void setFilmByFilmId(Film filmByFilmId) {
-        this.filmByFilmId = filmByFilmId;
+    public void setFilm(Film film) {
+        this.film = film;
     }
 
     @ManyToOne
-    @JoinColumn(name = "category_id", referencedColumnName = "category_id", nullable = false, updatable = false, insertable = false)
-    public Category getCategoryByCategoryId() {
-        return categoryByCategoryId;
+    @JoinColumn(name = "category_id", referencedColumnName = "category_id", nullable = false)
+    public Category getCategory() {
+        return category;
     }
 
-    public void setCategoryByCategoryId(Category categoryByCategoryId) {
-        this.categoryByCategoryId = categoryByCategoryId;
+    public void setCategory(Category category) {
+        this.category = category;
     }
 }
