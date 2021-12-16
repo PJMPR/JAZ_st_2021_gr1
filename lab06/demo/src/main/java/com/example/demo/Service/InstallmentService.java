@@ -7,8 +7,6 @@ import com.example.demo.Repo.InstallmentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.util.List;
-
 @Component
 public class InstallmentService {
     InstallmentRepository installmentRepository;
@@ -20,8 +18,8 @@ public class InstallmentService {
         this.calculator = calculator;
     }
 
-    public List<Installment> calculateInstallment(Timetable timetable){
-        return calculator.calculateInstalments(timetable);
+    public void calculateInstallment(Timetable timetable){
+        calculator.calculateInstalments(timetable).forEach(this::saveInstallments);
     }
 
     public void saveInstallments(Installment installment){

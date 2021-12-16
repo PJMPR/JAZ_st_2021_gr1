@@ -2,6 +2,7 @@ package com.example.demo.Exporters;
 
 import com.example.demo.PKO.Installment;
 import com.example.demo.Service.TimetableService;
+import org.springframework.stereotype.Component;
 import org.supercsv.io.CsvBeanWriter;
 import org.supercsv.io.ICsvBeanWriter;
 import org.supercsv.prefs.CsvPreference;
@@ -10,6 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
+
+@Component
 public class CSV {
     public void getFile(HttpServletResponse response, int id, TimetableService timetableService) throws IOException {
         response.setContentType("text/csv");

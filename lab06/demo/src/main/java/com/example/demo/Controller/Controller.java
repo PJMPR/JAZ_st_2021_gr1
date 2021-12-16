@@ -2,17 +2,13 @@ package com.example.demo.Controller;
 
 import com.example.demo.Exporters.CSV;
 import com.example.demo.Exporters.PDF;
-import com.example.demo.PKO.Installment;
 import com.example.demo.PKO.Timetable;
 import com.example.demo.Service.InstallmentService;
 import com.example.demo.Service.TimetableService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 @RestController
 public class Controller {
@@ -37,8 +33,7 @@ public class Controller {
     @PostMapping("/credit/calculations")
     public int calculation(@RequestBody Timetable timetable) {
         int id = timetableService.saveTimetable(timetable);
-        List<Installment> installments = new ArrayList<>(installmentService.calculateInstallment(timetable));
-        installments.forEach(installment -> installmentService.saveInstallments(installment));
+        installmentService.calculateInstallment(timetable);
         return id;
     }
 
