@@ -11,7 +11,6 @@ public class Payment {
     private Timestamp paymentDate;
     private Timestamp lastUpdate;
     private Customer customerByCustomerId;
-    private Staff staffByStaffId;
     private Rental rentalByRentalId;
 
     @Id
@@ -88,15 +87,6 @@ public class Payment {
         this.customerByCustomerId = customerByCustomerId;
     }
 
-    @ManyToOne()
-    @JoinColumn(name = "staff_id", referencedColumnName = "staff_id", nullable = false)
-    public Staff getStaffByStaffId() {
-        return staffByStaffId;
-    }
-
-    public void setStaffByStaffId(Staff staffByStaffId) {
-        this.staffByStaffId = staffByStaffId;
-    }
 
     @ManyToOne
     @JoinColumn(name = "rental_id", referencedColumnName = "rental_id")

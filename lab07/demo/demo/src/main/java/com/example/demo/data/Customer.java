@@ -1,6 +1,7 @@
 package com.example.demo.data;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 import java.sql.Timestamp;
 import java.util.Collection;
 
@@ -13,8 +14,7 @@ public class Customer {
     private byte active;
     private Timestamp createDate;
     private Timestamp lastUpdate;
-    private Store store;
-    private Address address;
+
     private Collection<Payment> payments;
     private Collection<Rental> rentalsByCustomer;
 
@@ -118,26 +118,6 @@ public class Customer {
         return result;
     }
 
-    @ManyToOne
-    @JoinColumn(name = "store_id", referencedColumnName = "store_id", nullable = false)
-    public Store getStore() {
-        return store;
-    }
-
-    public void setStore(Store store) {
-        this.store = store;
-    }
-
-    @ManyToOne
-    @JoinColumn(name = "address_id", referencedColumnName = "address_id", nullable = false)
-    public Address getAddress() {
-        return address;
-    }
-
-    public void setAddress(Address address) {
-        this.address = address;
-    }
-
     @OneToMany(mappedBy = "customerByCustomerId"  )
     public Collection<Payment> getPayments() {
         return payments;
@@ -154,5 +134,19 @@ public class Customer {
 
     public void setRentalsByCustomer(Collection<Rental> rentalsByCustomer) {
         this.rentalsByCustomer = rentalsByCustomer;
+    }
+
+    public int moviesWatched(){
+        return rentalsByCustomer.size();
+    }
+
+    public BigDecimal moneySpent(){
+        return payments.stream().map(Payment::getAmount).reduce(BigDecimal.valueOf(0), BigDecimal::add);
+    }
+
+    public int moviesInMonth(int year, int month){
+        Timestamp timeFrom = Timestamp.valueOf(year+"-"+month+"-01 00:00:01");
+        Timestamp timeTo = Timestamp.valueOf(year+"-"+month+"-31 23:59:59");
+        return (int) getRentalsByCustomer().stream().map(Rental::getRentalDate).filter(date -> date.after(timeFrom) && date.before(timeTo)).count();
     }
 }

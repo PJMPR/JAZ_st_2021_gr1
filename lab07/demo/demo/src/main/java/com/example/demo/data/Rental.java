@@ -11,9 +11,7 @@ public class Rental {
     private Timestamp returnDate;
     private Timestamp lastUpdate;
     private Collection<Payment> paymentsByRentalId;
-    private Inventory inventoryByInventoryId;
     private Customer customerByCustomerId;
-    private Staff staffByStaffId;
 
     @Id
     @Column(name = "rental_id")
@@ -88,15 +86,7 @@ public class Rental {
         this.paymentsByRentalId = paymentsByRentalId;
     }
 
-    @ManyToOne
-    @JoinColumn(name = "inventory_id", referencedColumnName = "inventory_id", nullable = false)
-    public Inventory getInventoryByInventoryId() {
-        return inventoryByInventoryId;
-    }
 
-    public void setInventoryByInventoryId(Inventory inventoryByInventoryId) {
-        this.inventoryByInventoryId = inventoryByInventoryId;
-    }
 
     @ManyToOne
     @JoinColumn(name = "customer_id", referencedColumnName = "customer_id", nullable = false)
@@ -108,13 +98,5 @@ public class Rental {
         this.customerByCustomerId = customerByCustomerId;
     }
 
-    @ManyToOne
-    @JoinColumn(name = "staff_id", referencedColumnName = "staff_id", nullable = false)
-    public Staff getStaffByStaffId() {
-        return staffByStaffId;
-    }
 
-    public void setStaffByStaffId(Staff staffByStaffId) {
-        this.staffByStaffId = staffByStaffId;
-    }
 }
