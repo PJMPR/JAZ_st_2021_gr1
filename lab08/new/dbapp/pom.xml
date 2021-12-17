@@ -8,13 +8,13 @@
 		<version>2.6.1</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.example</groupId>
-	<artifactId>demo</artifactId>
+	<groupId>com.lab08</groupId>
+	<artifactId>dbapp</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
-	<name>demo</name>
+	<name>dbapp</name>
 	<description>Demo project for Spring Boot</description>
-		<properties>
+	<properties>
 		<java.version>17</java.version>
 	</properties>
 	<dependencies>
