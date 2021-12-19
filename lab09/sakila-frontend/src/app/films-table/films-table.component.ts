@@ -33,7 +33,7 @@ export class FilmsTableComponent implements OnInit {
   next() {
     this.isProgressVisible=true;
     const nextPage = this.queryParameters.page+1;
-    this.queryParameters.language=this.queryParameters.language?.id;
+    this.queryParameters.language=this.queryParameters.language?.name;
     this.filmsService.getFilms(this.queryParameters).subscribe(x=>{this.films=x; this.isProgressVisible=false});
     this.queryParameters.page=nextPage;
 }
@@ -41,7 +41,7 @@ export class FilmsTableComponent implements OnInit {
 prev() {
   this.isProgressVisible=true;
   const prevPage = this.queryParameters.page-1;
-  this.queryParameters.language=this.queryParameters.language?.id;
+  this.queryParameters.language=this.queryParameters.language?.name;
   this.filmsService.getFilms(this.queryParameters)
   .subscribe(x=>{this.films=x; this.isProgressVisible=false});
   this.queryParameters.page=prevPage>0?prevPage:1;
@@ -49,7 +49,7 @@ prev() {
 
 reset() {
   this.isProgressVisible=true;
-  this.queryParameters.language=this.queryParameters.language?.id;
+  this.queryParameters.language=this.queryParameters.language?.name;
   this.filmsService.getFilms(this.queryParameters)
   .subscribe(x=>{this.films=x; this.isProgressVisible=false});
   this.queryParameters.page=1;
@@ -65,7 +65,7 @@ isFirstPage(): boolean {
 
 search(){
   this.isProgressVisible=true;
-  this.queryParameters.language=this.queryParameters.language?.id;
+  this.queryParameters.language=this.queryParameters.language?.name;
   this.filmsService.getFilms(this.queryParameters).subscribe(x=>{this.films=x; this.isProgressVisible=false});
 }
 
