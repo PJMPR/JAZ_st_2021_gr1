@@ -18,7 +18,7 @@ public class FilmService {
     public List<FilmDto> getFilms(){
         return filmsRepository.getFilms()
                 .stream()
-                .map(x->new FilmDto(x.getFilmId(), x.getTitle(), x.getReleaseYear(), x.getRentalDuration(), x.getRentalRate(), x.getReplacementCost(),
+                .map(x->new FilmDto(x.getReleaseYear(), x.getRentalDuration(), x.getRentalRate(), x.getReplacementCost(),
                         new LanguageDto(x.getLanguage().getLanguageId(), x.getLanguage().getName())))
                 .collect(Collectors.toList());
     }

@@ -9,26 +9,74 @@ import java.math.BigDecimal;
 
 @Getter
 @Setter
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 public class FilmDto {
-    private int id;
+    private Integer id;
     private String title;
-    private int releaseYear;
-    private int rentalDuration;
+    private Integer releaseYear;
+    private LanguageDto language;
+    private BigDecimal rentalDuration;
     private BigDecimal rentalRate;
     private BigDecimal replacementCosts;
-    private LanguageDto language;
 
+    public FilmDto(int releaseYear, int rentalDuration, BigDecimal rentalRate, BigDecimal replacementCost, LanguageDto languageDto) {
+    }
+
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public void setReleaseYear(Integer releaseYear) {
+        this.releaseYear = releaseYear;
+    }
+
+    public void setLanguage(LanguageDto language) {
+        this.language = language;
+    }
+
+    public void setRentalDuration(BigDecimal rentalDuration) {
+        this.rentalDuration = rentalDuration;
+    }
+
+    public void setRentalRate(BigDecimal rentalRate) {
+        this.rentalRate = rentalRate;
+    }
+
+    public void setReplacementCosts(BigDecimal replacementCosts) {
+        this.replacementCosts = replacementCosts;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public Integer getReleaseYear() {
+        return releaseYear;
+    }
+
+    public LanguageDto getLanguage() {
+        return language;
+    }
+
+    public BigDecimal getRentalDuration() {
+        return rentalDuration;
+    }
+
+    public BigDecimal getRentalRate() {
+        return rentalRate;
+    }
+
+    public BigDecimal getReplacementCosts() {
+        return replacementCosts;
+    }
 }
-/*
-export interface Film{
-    id:number,
-    title:string,
-    releaseYear?:number,
-    language?:Language,
-    rentalDuration?:number,
-    rentalRate?:number,
-    replacementCosts?:number
-}
-* */
