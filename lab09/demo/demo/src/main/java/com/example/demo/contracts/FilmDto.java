@@ -1,9 +1,6 @@
 package com.example.demo.contracts;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.math.BigDecimal;
 
@@ -11,6 +8,7 @@ import java.math.BigDecimal;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 public class FilmDto {
     private int id;
     private String title;
@@ -21,14 +19,3 @@ public class FilmDto {
     private LanguageDto language;
 
 }
-/*
-export interface Film{
-    id:number,
-    title:string,
-    releaseYear?:number,
-    language?:Language,
-    rentalDuration?:number,
-    rentalRate?:number,
-    replacementCosts?:number
-}
-* */
