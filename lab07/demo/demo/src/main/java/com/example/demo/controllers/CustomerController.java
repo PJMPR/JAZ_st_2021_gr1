@@ -1,21 +1,32 @@
 package com.example.demo.controllers;
 
+<<<<<<< HEAD
 import com.example.demo.model.*;
 import com.example.demo.service.CustomerService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
+=======
+import com.example.demo.repositories.CustomerRepository;
+>>>>>>> 62e3a4e14484aa83fc53cd8bd6a8184df1b08217
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+<<<<<<< HEAD
 import java.io.IOException;
 import java.util.*;
+=======
+import java.sql.Timestamp;
+import java.time.LocalDate;
+import java.util.stream.Collectors;
+>>>>>>> 62e3a4e14484aa83fc53cd8bd6a8184df1b08217
 
 @RestController
 @RequestMapping("customers")
 public class CustomerController {
+<<<<<<< HEAD
     CustomerService customerService;
 
     public CustomerController(CustomerService service) {
@@ -109,3 +120,24 @@ public class CustomerController {
         return ResponseEntity.ok(customerService.rentMoviesByMonths(year));
     }
 }
+=======
+
+    public CustomerController(CustomerRepository repository) {
+        this.repository = repository;
+    }
+
+    CustomerRepository repository;
+
+    @GetMapping
+    @RequestMapping("{id}")
+    public ResponseEntity get(@PathVariable("id") int id){
+        Timestamp t = Timestamp.valueOf("2021-01-10 00:00:00");
+        return ResponseEntity.ok(repository.getById(id)
+                .getPayments()
+                .stream()
+                .map(x->x.getAmount())
+                .collect(Collectors
+                        .toList()));
+    }
+}
+>>>>>>> 62e3a4e14484aa83fc53cd8bd6a8184df1b08217

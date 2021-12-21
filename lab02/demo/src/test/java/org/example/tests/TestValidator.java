@@ -25,6 +25,7 @@ public class TestValidator {
         assertThat(result.getNotValidFields().keySet(),hasSize(3));
     }
 
+<<<<<<< HEAD
 //    public void test_if_object_with_null_name_is_invalid(){
 //        SampleObject sample = new SampleObject(null, "a@wp.pl", 5);
 //        ValidationResult result = validator.validate(sample);
@@ -37,6 +38,20 @@ public class TestValidator {
 //
 //
 //    }
+=======
+    public void test_if_object_with_null_name_is_invalid(){
+        SampleObject sample = new SampleObject(null, "a@wp.pl", 5);
+        ValidationResult result = validator.validate(sample);
+        assertThat(result.isValid(), is(false));
+        assertThat(result.getValidatedObject(), notNullValue());
+        assertThat(result.getNotValidFields().keySet(),hasSize(1));
+        assertThat(result.getNotValidFields().keySet(), contains("name"));
+        assertThat(result.getNotValidFields().get("name"), hasSize(1));
+        assertThat(result.getNotValidFields().get("name"), contains("field is null"));
+
+
+    }
+>>>>>>> 62e3a4e14484aa83fc53cd8bd6a8184df1b08217
 
     @Test
     public void test_if_object_with_incorrect_email_is_invalid(){

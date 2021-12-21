@@ -3,6 +3,10 @@ package com.example.demo.model;
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.sql.Timestamp;
+<<<<<<< HEAD
+=======
+import java.util.Objects;
+>>>>>>> 62e3a4e14484aa83fc53cd8bd6a8184df1b08217
 
 @Entity
 public class Film {
@@ -89,6 +93,7 @@ public class Film {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
+<<<<<<< HEAD
 
         Film film = (Film) o;
 
@@ -102,10 +107,15 @@ public class Film {
         if (lastUpdate != null ? !lastUpdate.equals(film.lastUpdate) : film.lastUpdate != null) return false;
 
         return true;
+=======
+        Film film = (Film) o;
+        return filmId == film.filmId && releaseYear == film.releaseYear && rentalDuration == film.rentalDuration && Objects.equals(title, film.title) && Objects.equals(rentalRate, film.rentalRate) && Objects.equals(replacementCost, film.replacementCost) && Objects.equals(lastUpdate, film.lastUpdate);
+>>>>>>> 62e3a4e14484aa83fc53cd8bd6a8184df1b08217
     }
 
     @Override
     public int hashCode() {
+<<<<<<< HEAD
         int result = filmId;
         result = 31 * result + (title != null ? title.hashCode() : 0);
         result = 31 * result + releaseYear;
@@ -114,6 +124,9 @@ public class Film {
         result = 31 * result + (replacementCost != null ? replacementCost.hashCode() : 0);
         result = 31 * result + (lastUpdate != null ? lastUpdate.hashCode() : 0);
         return result;
+=======
+        return Objects.hash(filmId, title, releaseYear, rentalDuration, rentalRate, replacementCost, lastUpdate);
+>>>>>>> 62e3a4e14484aa83fc53cd8bd6a8184df1b08217
     }
 
     @ManyToOne
