@@ -21,16 +21,26 @@ public class FilmsRepository {
     public void updateFilm(int id, FilmDto updateFilm) {
         Calendar timestamp = Calendar.getInstance();
         entityManager.joinTransaction();
-        entityManager.createQuery("UPDATE Film " +
-                        "SET (title,release_year,rental_duration,rental_rate,replacement_cost,last_update,language_id) WHERE id= " + id +
-                        "VALUES (?,?,?,?,?,?,?)")
+        entityManager.createQuery("UPDATE Film SET " +
+                        "title = '?', " +
+                        "release_year = '?', " +
+                        "rental_duration = '?', " +
+                        "rental_rate = '?', " +
+                        "replacement_cost = '?', " +
+                        "last_update = '?', " +
+                        "language_id = '?' " +
+                        "where id=" + id)
+
+
                 .setParameter(1, updateFilm.getTitle())
                 .setParameter(2, updateFilm.getReleaseYear())
                 .setParameter(3, updateFilm.getRentalDuration())
                 .setParameter(4, updateFilm.getRentalRate())
                 .setParameter(5, updateFilm.getReplacementCosts())
                 .setParameter(6, Timestamp.from(timestamp.getTime().toInstant()))
-                .setParameter(7, updateFilm.getLanguage().getId()).executeUpdate();
+                .setParameter(7, updateFilm.getLanguage().getId())
+                .executeUpdate();
+
 
     }
 
@@ -53,7 +63,7 @@ public class FilmsRepository {
     public List<Film> getFilms() {
         return entityManager.createQuery("SELECT film FROM Film film", Film.class)
                 .setMaxResults(20)
-                .setFirstResult(0)
+                .setFirstResult(1000)
                 .getResultList();
 
     }
