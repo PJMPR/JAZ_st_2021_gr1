@@ -22,13 +22,13 @@ public class FilmsRepository {
         Calendar timestamp = Calendar.getInstance();
         entityManager.joinTransaction();
         entityManager.createQuery("UPDATE Film SET " +
-                        "title = '?', " +
-                        "release_year = '?', " +
-                        "rental_duration = '?', " +
-                        "rental_rate = '?', " +
-                        "replacement_cost = '?', " +
-                        "last_update = '?', " +
-                        "language_id = '?' " +
+                        "title = ?1, " +
+                        "release_year = ?2, " +
+                        "rental_duration = ?3, " +
+                        "rental_rate = ?4, " +
+                        "replacement_cost = ?5, " +
+                        "last_update = ?6, " +
+                        "language_id = ?7 " +
                         "where id=" + id)
 
 
