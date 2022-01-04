@@ -1,5 +1,6 @@
 package com.example.demo.Charts;
 
+import com.example.demo.Services.ChartsType;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.JFreeChart;
 import org.jfree.data.general.AbstractDataset;
@@ -12,7 +13,7 @@ public class PieCharGenerator extends ChartGenerator{
     private final DefaultPieDataset dataset = new DefaultPieDataset() {};
 
     @Override
-    public byte[] generate(String title, String type, String xLabel, String yLabel) throws IOException {
+    public byte[] generate(String title, ChartsType type, String xLabel, String yLabel) throws IOException {
         JFreeChart chart = ChartFactory.createPieChart(
                 title,
                 dataset,

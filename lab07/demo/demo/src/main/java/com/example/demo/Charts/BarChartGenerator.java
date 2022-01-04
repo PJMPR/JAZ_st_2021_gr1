@@ -1,5 +1,6 @@
 package com.example.demo.Charts;
 
+import com.example.demo.Services.ChartsType;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.plot.PlotOrientation;
@@ -13,7 +14,7 @@ public class BarChartGenerator extends ChartGenerator{
     private final AbstractDataset dataset = new DefaultCategoryDataset() {};
 
     @Override
-    public byte[] generate(String title, String type, String xLabel, String yLabel) throws IOException {
+    public byte[] generate(String title, ChartsType type, String xLabel, String yLabel) throws IOException {
         JFreeChart chart = ChartFactory.createBarChart(
                 title,
                 xLabel,

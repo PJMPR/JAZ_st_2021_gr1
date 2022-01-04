@@ -1,19 +1,25 @@
 package com.example.demo.Services;
 
+import com.example.demo.Charts.BarChartGenerator;
+import com.example.demo.Charts.ChartGenerator;
+import com.example.demo.Charts.LinearChartGenerator;
+import com.example.demo.Charts.PieCharGenerator;
 import com.example.demo.Model.CustomerDto;
 import com.example.demo.Model.RentalDto;
 import com.example.demo.repositories.CustomerRepository;
-import com.example.demo.repositories.RentalRepository;
 import lombok.AllArgsConstructor;
-import org.springframework.stereotype.Component;
+import org.jfree.data.category.DefaultCategoryDataset;
+import org.jfree.data.general.DefaultPieDataset;
 import org.springframework.stereotype.Service;
 
-import java.lang.reflect.Array;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
+
+import static com.example.demo.Services.ChartsType.*;
 
 @Service
 @AllArgsConstructor
@@ -51,17 +57,14 @@ public class CustomerService {
         ArrayList<RentalDto> rentInMonth = new ArrayList<>();
         ArrayList<Integer> allRents = new ArrayList<>();
 
-        if(id == 0)
-        {
+        if (id == 0) {
             IntStream.rangeClosed(1, 12)
                     .forEach(i -> allRents
                             .add(customerRepository.findAll()
                                     .stream()
                                     .map(customer -> customer.moviesInMonth(year, i))
                                     .reduce(0, Integer::sum)));
-        }
-        else
-        {
+        } else {
             IntStream.rangeClosed(1, 12)
                     .forEach(i -> allRents
                             .add(customerRepository.findById(id)
@@ -77,4 +80,113 @@ public class CustomerService {
         return rentInMonth;
     }
 
+    public byte[] rentalChart(ChartsType type, String title, String xAxis, String yAxis, List<RentalDto> data) throws IOException{
+
+        ChartGenerator generator;
+        DefaultCategoryDataset dataset;
+        switch (type){
+            case BAR:
+                generator = new BarChartGenerator();
+                dataset = (DefaultCategoryDataset) generator.getDataSet();
+                data.forEach(stats -> dataset.setValue(
+                        (Number)stats.getRentsInMonth(),
+                        "",
+                        stats.getMonth()
+                ));
+                return generator.generate(title, BAR, xAxis, yAxis);
+            case LINEAR:
+                generator = new LinearChartGenerator();
+                dataset = (DefaultCategoryDataset) generator.getDataSet();
+                data.forEach(stats -> dataset.setValue(
+                        (Number)stats.getRentsInMonth(),
+                        "",
+                        stats.getMonth()
+                ));
+                return generator.generate(title, LINEAR, xAxis, yAxis);
+            case PIE:
+                generator = new PieCharGenerator();
+                DefaultPieDataset pieDataset = (DefaultPieDataset) generator.getDataSet();
+                data.forEach(stats -> pieDataset.setValue(
+                        stats.getMonth(),
+                        (Number)stats.getRentsInMonth()
+                ));
+                return generator.generate(title, PIE, "", "");
+            default:
+                return null;
+        }
+    }
+
+    public byte[] customerChart(ChartsType type, FieldType fieldType, String title, String xAxis, String yAxis, List<CustomerDto> data) throws IOException {
+        ChartGenerator generator;
+        DefaultCategoryDataset dataset;
+        switch (type) {
+            case BAR:
+                generator = new BarChartGenerator();
+                dataset = (DefaultCategoryDataset) generator.getDataSet();
+                if (fieldType == FieldType.MOVIES) {
+                    data.forEach(stats -> dataset.setValue(
+                            (Number) stats.getWatchedMovies(),
+                            "",
+                            stats.getCustomerID()
+                    ));
+                } else {
+                    data.forEach(stats -> dataset.setValue(
+                            (Number) stats.getMoneySpent(),
+                            "",
+                            stats.getCustomerID()
+                    ));
+                }
+                return generator.generate(title, BAR, xAxis, yAxis);
+
+            case PIE:
+
+                if (fieldType == FieldType.MOVIES) {
+                    generator = new PieCharGenerator();
+                    DefaultPieDataset pieDataset = (DefaultPieDataset) generator.getDataSet();
+                    data.forEach(stats -> pieDataset.setValue(
+                            stats.getCustomerID(),
+                            (Number) stats.getWatchedMovies()
+                    ));
+                } else {
+                    generator = new PieCharGenerator();
+                    DefaultPieDataset pieDataset = (DefaultPieDataset) generator.getDataSet();
+                    data.forEach(stats -> pieDataset.setValue(
+                            stats.getCustomerID(),
+                            (Number) stats.getMoneySpent()
+                    ));
+                }
+
+                return generator.generate(title, PIE, "", "");
+            default:
+                return null;
+        }
+    }
+
+//    public byte[] rentalChart(ChartsType type, String title, String xAxis, String yAxis, List<RentalDto> data) throws IOException {
+//        ChartGenerator generator;
+//        DefaultCategoryDataset dataset;
+//        switch (type) {
+//            case BAR:
+//                generator = new BarChartGenerator();
+//                dataset = (DefaultCategoryDataset) generator.getDataSet();
+//                data.forEach(stats -> dataset.setValue(
+//                        (Number) stats.getRentsInMonth(),
+//                        "",
+//                        stats.getMonth()
+//                ));
+//                return generator.generate(title, BAR, xAxis, yAxis);
+//
+//            case PIE:
+//
+//                generator = new PieCharGenerator();
+//                DefaultPieDataset pieDataset = (DefaultPieDataset) generator.getDataSet();
+//                data.forEach(stats -> pieDataset.setValue(
+//                        stats.getCustomerID(),
+//                        (Number) stats.getWatchedMovies()
+//                ));
+//                return generator.generate(title, PIE, "", "");
+//            default:
+//                return null;
+//        }
+//    }
 }
