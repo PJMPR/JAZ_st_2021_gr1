@@ -15,11 +15,11 @@ public class FilmService {
 
     private final FilmsRepository filmsRepository;
 
-    public List<FilmDto> getFilms(){
-        return filmsRepository.getFilms()
-                .stream()
-                .map(x->new FilmDto(x.getFilmId(), x.getTitle(), x.getReleaseYear(), x.getRentalDuration(), x.getRentalRate(), x.getReplacementCost(),
-                        new LanguageDto(x.getLanguage().getLanguageId(), x.getLanguage().getName())))
-                .collect(Collectors.toList());
-    }
+//    public List<FilmDto> getFilms(){
+//        return filmsRepository.getFilms()
+//                .stream()
+//                .map(x->new FilmDto(x.getFilmId(), x.getTitle(), x.getReleaseYear(), x.getRentalDuration(), x.getRentalRate(), x.getReplacementCost(),
+//                        new LanguageDto(x.getLanguage().getLanguageId(), x.getLanguage().getName())))
+//                .collect(Collectors.toList());
+//    }
 }
