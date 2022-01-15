@@ -10,9 +10,9 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 @Builder
 public class FilmDto {
-    private int id;
+    private Integer id;
     private String title;
-    private int releaseYear;
+    private Integer releaseYear;
     private BigDecimal rentalDuration;
     private BigDecimal rentalRate;
     private BigDecimal replacementCosts;
