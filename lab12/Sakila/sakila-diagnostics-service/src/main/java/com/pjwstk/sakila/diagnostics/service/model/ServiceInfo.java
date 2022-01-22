@@ -6,14 +6,25 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class ServiceInformation {
+public class ServiceInfo {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private String serviceName;
+    private String name;
     private String host;
     private boolean isWorking;
+
+    public ServiceInfo(Long id, String name, String host, boolean isWorking) {
+        this.id = id;
+        this.name = name;
+        this.host = host;
+        this.isWorking = isWorking;
+    }
+
+    public ServiceInfo() {
+
+    }
 
     public void setId(Long id) {
         this.id = id;
@@ -23,12 +34,12 @@ public class ServiceInformation {
         return id;
     }
 
-    public String getServiceName() {
-        return serviceName;
+    public String getName() {
+        return name;
     }
 
-    public void setServiceName(String serviceName) {
-        this.serviceName = serviceName;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getHost() {
